@@ -1,40 +1,52 @@
-create database HASTANE
+-- Create the database HASTANE
+CREATE DATABASE HASTANE;
 
+-- Use the database HASTANE
+USE HASTANE;
+
+-- Create table Hasta
 CREATE TABLE Hasta(
-HastaId int not null Primary Key,
-Soyad nvarchar(20) not null,
-Ad nvarchar(20) not null,
-Cinsiyet nchar(1) not null,
-Boy float not null,
-Kilo float not null
-)
+    HastaId int NOT NULL PRIMARY KEY,
+    Soyad nvarchar(20) NOT NULL,
+    Ad nvarchar(20) NOT NULL,
+    Cinsiyet nchar(1) NOT NULL,
+    Boy float NOT NULL,
+    Kilo float NOT NULL
+);
 
-use HASTANE
-insert into Hasta(HastaId,Soyad,Ad,Cinsiyet,Boy,Kilo) 
-values(15223,'Smith','Deniz','F',158,47)
+-- Insert data into Hasta table
+INSERT INTO Hasta(HastaId, Soyad, Ad, Cinsiyet, Boy, Kilo) 
+VALUES(15223, 'Smith', 'Deniz', 'F', 158, 47);
 
-use HASTANE
-insert into Hasta(HastaId,Soyad,Ad,Cinsiyet,Boy,Kilo)
-values
-(15224,'Agarwal','Arjun','M',192,89),
-(15225,'Adams','Poopy','F',185,92)
+INSERT INTO Hasta(HastaId, Soyad, Ad, Cinsiyet, Boy, Kilo)
+VALUES
+    (15224, 'Agarwal', 'Arjun', 'M', 192, 89),
+    (15225, 'Adams', 'Poopy', 'F', 185, 92);
 
-use HASTANE
-select Ad,Soyad,Boy,Kilo
-from Hasta where Boy>160 or Kilo<85
+-- Select records where Boy > 160 or Kilo < 85
+SELECT Ad, Soyad, Boy, Kilo
+FROM Hasta
+WHERE Boy > 160 OR Kilo < 85;
 
-use HASTANE
-select Ad,Soyad,Boy,Kilo
-from Hasta order by Boy asc
+-- Select all records and order by Boy ascending
+SELECT Ad, Soyad, Boy, Kilo
+FROM Hasta
+ORDER BY Boy ASC;
 
-use HASTANE
-select avg(Boy) from Hasta
+-- Select the average Boy
+SELECT AVG(Boy)
+FROM Hasta;
 
-use HASTANE
-select Count(*) from Hasta where Boy>160
+-- Count the number of records where Boy > 160
+SELECT COUNT(*)
+FROM Hasta
+WHERE Boy > 160;
 
-use HASTANE
-update Hasta set Kilo=55 where HastaId=15223
+-- Update Kilo for the record where HastaId is 15223
+UPDATE Hasta
+SET Kilo = 55
+WHERE HastaId = 15223;
 
-use HASTANE
-delete from Hasta where HastaId=15223
+-- Delete the record where HastaId is 15223
+DELETE FROM Hasta
+WHERE HastaId = 15223;
